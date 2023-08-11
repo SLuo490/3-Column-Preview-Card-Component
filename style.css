@@ -13,3 +13,54 @@
   --n-transparent-white: hsla(0, 0%, 100%, 0.75);
   --n-very-light-gray: hsl(0, 0%, 95%);
 }
+
+body {
+  height: 100vh;
+
+  color: var(--n-transparent-white);
+}
+
+img {
+  width: 64px;
+  height: 40px;
+}
+
+.sedan,
+.suv,
+.luxury {
+  padding: 48px 47.5px 0 48.5px;
+}
+
+.option {
+  padding: 35px 0 25px 0;
+}
+
+.description {
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  section {
+    width: 327px;
+    height: 442px;
+  }
+
+  .sedan {
+    background-color: var(--pm-bright-orange);
+  }
+
+  .suv {
+    background-color: var(--pm-dark-cyan);
+  }
+
+  .luxury {
+    background-color: var(--pm-very-dark-cyan);
+  }
+}
