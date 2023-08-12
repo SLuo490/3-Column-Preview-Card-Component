@@ -1,20 +1,24 @@
 # Frontend Mentor - 3-column preview card component solution
 
-This is a solution to the [3-column preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/3column-preview-card-component-pH92eAR2-). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Frontend Mentor - 3-column preview card component solution](#frontend-mentor---3-column-preview-card-component-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [Documentation](#documentation)
+    - [HTML](#html)
+    - [Styling](#styling)
+      - [Mobile](#mobile)
+      - [Website](#website)
+        - [Layout](#layout)
+        - [Components](#components)
+        - [Standard Stylings](#standard-stylings)
+  - [Next Step](#next-step)
+    - [Built with](#built-with)
+  - [Author](#author)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -31,81 +35,243 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-## My process
+## Documentation
+
+### HTML
+
+```html
+<body>
+  <main>
+    <section class="sedan">
+      <img src="/images/icon-sedans.svg" alt="sedan" />
+      <h1>Sedans</h1>
+      <p>
+        Choose a sedan for its affordability and excellent fuel economy. Ideal
+        for cruising in the city or on your next road trip.
+      </p>
+      <button>Learn More</button>
+    </section>
+    <section class="suv">
+      <img src="/images/icon-suvs.svg" alt="suv" />
+      <h1>SUVs</h1>
+      <p>
+        Take an SUV for its spacious interior, power, and versatility. Perfect
+        for your next family vacation and off-road adventures.
+      </p>
+      <button>Learn More</button>
+    </section>
+    <section class="luxury">
+      <img src="/images/icon-luxury.svg" alt="luxury" />
+      <h1>Luxury</h1>
+      <p>
+        Cruise in the best car brands without the bloated prices. Enjoy the
+        enhanced comfort of a luxury rental and arrive in style.
+      </p>
+      <button>Learn More</button>
+    </section>
+  </main>
+</body>
+```
+
+For this project, I structured the project into three sections (columns). In each section, I added image, then the heading then the description of the car. In each section, I added a button to the `Learn More`.
+
+### Styling
+
+#### Mobile
+
+```css
+@media screen and (max-width: 375px) {
+  main {
+    flex-direction: column;
+  }
+
+  section {
+    height: 442px;
+    width: 327px;
+  }
+
+  .sedan {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .luxury {
+    border-radius: 0 0 8px 8px;
+  }
+
+  .description {
+    margin-bottom: 25px;
+  }
+}
+```
+
+I started developing the front end by doing [mobile first design](https://www.browserstack.com/guide/how-to-implement-mobile-first-design). I determined the mobile screen size using figma and then made the three columns centered on the screen vertically using `flex-direction`.
+
+I then made the section's width and height to `327px` and `442px` according to the figma.
+
+```css
+section {
+  height: 442px;
+  width: 327px;
+}
+```
+
+I then updated the border-radius to the columns, and the `margin-bottom` for description as the bottom would overlap.
+
+```css
+.sedan {
+  border-radius: 8px 8px 0 0;
+}
+
+.luxury {
+  border-radius: 0 0 8px 8px;
+}
+
+.description {
+  margin-bottom: 25px;
+}
+```
+
+#### Website
+
+##### Layout
+
+Starting out, for the website, I make the height of the body `100vh` and change its color to white. I then made the content center on the middle of the page using [flex box](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+
+```css
+body {
+  height: 100vh;
+  color: var(--n-transparent-white);
+
+  /* Center the 3-columns on the middle of the page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+Following that, I gave the `main` in HTML a `display: flex` too, so the content will become a column instead of row.
+
+```css
+main {
+  /* Make the 3-columns a "column" */
+  display: flex;
+}
+```
+
+Using the figma, I made the section a width of `307px` and height of `500px`.
+
+```css
+section {
+  width: 307px;
+  height: 500px;
+}
+```
+
+##### Components
+
+I made a text component where I can use to style both the description and the text of the button so I don't repeat myself.
+
+```css
+.text {
+  font-family: Lexend Deca, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+```
+
+##### Standard Stylings
+
+The following steps were straight forward as I just followed the figma design and added the `color` for the background, the `border-radius` for the container, and paddings for each of the three columns.
+
+```css
+.sedan {
+  background-color: var(--pm-bright-orange);
+  border-radius: 8px 0 0 8px;
+}
+
+.sedan button {
+  color: var(--pm-bright-orange);
+}
+
+.suv {
+  background-color: var(--pm-dark-cyan);
+}
+
+.suv button {
+  color: var(--pm-dark-cyan);
+}
+
+.luxury {
+  background-color: var(--pm-very-dark-cyan);
+  border-radius: 0 8px 8px 0;
+}
+
+.luxury button {
+  color: var(--pm-very-dark-cyan);
+}
+
+/* Paddings */
+.sedan,
+.suv,
+.luxury {
+  padding: 48px 47.5px 0 48.5px;
+}
+
+.option {
+  padding: 35px 0 25px 0;
+
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--n-very-light-gray);
+}
+
+.description {
+  margin-bottom: 83px;
+  color: var(--n-transparent-white);
+  opacity: 0.75;
+}
+```
+
+Similarly, I followed the figma design to add the styling for the buttons.
+
+```css
+.btn {
+  width: 146px;
+  height: 48px;
+  border-radius: 25px;
+  background-color: var(--n-very-light-gray);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border: 2px solid var(--n-transparent-white);
+  color: var(--n-transparent-white);
+}
+```
+
+## Next Step
+
+The next step would be to improve the readability of the code, and removing code so I don't repeat myself. One method that I could use is similar to what I have done in making a class `.text` and adding the class to the HTML so the classes would have the same styling.
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
