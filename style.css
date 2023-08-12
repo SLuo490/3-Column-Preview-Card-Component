@@ -16,15 +16,39 @@
 
 body {
   height: 100vh;
-
   color: var(--n-transparent-white);
+
+  /* Center the 3-columns on the middle of the page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-img {
-  width: 64px;
-  height: 40px;
+main {
+  /* Make the 3-columns a "column" */
+  display: flex;
 }
 
+section {
+  width: 307px;
+  height: 500px;
+}
+
+.sedan {
+  background-color: var(--pm-bright-orange);
+  border-radius: 8px 0 0 8px;
+}
+
+.suv {
+  background-color: var(--pm-dark-cyan);
+}
+
+.luxury {
+  background-color: var(--pm-very-dark-cyan);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Paddings */
 .sedan,
 .suv,
 .luxury {
@@ -39,28 +63,21 @@ img {
   padding-bottom: 25px;
 }
 
-@media screen and (max-width: 375px) {
-  body {
-    display: flex;
+@media screen and (max-width: 1000px) {
+  main {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   section {
-    width: 327px;
     height: 442px;
+    width: 327px;
   }
 
   .sedan {
-    background-color: var(--pm-bright-orange);
-  }
-
-  .suv {
-    background-color: var(--pm-dark-cyan);
+    border-radius: 8px 8px 0 0;
   }
 
   .luxury {
-    background-color: var(--pm-very-dark-cyan);
+    border-radius: 0 0 8px 8px;
   }
 }
