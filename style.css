@@ -16,7 +16,7 @@
 
 body {
   height: 100vh;
-  color: var(--n-transparent-white);
+  color: var(--n-very-light-gray);
 
   /* Center the 3-columns on the middle of the page */
   display: flex;
@@ -27,6 +27,8 @@ body {
 main {
   /* Make the 3-columns a "column" */
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section {
