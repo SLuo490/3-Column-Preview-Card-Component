@@ -34,18 +34,39 @@ section {
   height: 500px;
 }
 
+/* Added a text class to prevent repetition */
+.text {
+  font-family: Lexend Deca, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
 .sedan {
   background-color: var(--pm-bright-orange);
   border-radius: 8px 0 0 8px;
+}
+
+.sedan button {
+  color: var(--pm-bright-orange);
 }
 
 .suv {
   background-color: var(--pm-dark-cyan);
 }
 
+.suv button {
+  color: var(--pm-dark-cyan);
+}
+
 .luxury {
   background-color: var(--pm-very-dark-cyan);
   border-radius: 0 8px 8px 0;
+}
+
+.luxury button {
+  color: var(--pm-very-dark-cyan);
 }
 
 /* Paddings */
@@ -57,10 +78,33 @@ section {
 
 .option {
   padding: 35px 0 25px 0;
+
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--n-very-light-gray);
 }
 
 .description {
-  padding-bottom: 25px;
+  margin-bottom: 83px;
+  color: var(--n-transparent-white);
+  opacity: 0.75;
+}
+
+.btn {
+  width: 146px;
+  height: 48px;
+  border-radius: 25px;
+  background-color: var(--n-very-light-gray);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border: 2px solid var(--n-transparent-white);
+  color: var(--n-transparent-white);
 }
 
 @media screen and (max-width: 1000px) {
@@ -71,6 +115,10 @@ section {
   section {
     height: 442px;
     width: 327px;
+  }
+
+  .description {
+    margin-bottom: 25px;
   }
 
   .sedan {
