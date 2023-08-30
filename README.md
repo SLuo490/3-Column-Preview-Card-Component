@@ -270,8 +270,9 @@ The next step would be to improve the readability of the code, and removing code
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
-
+  
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@SLuo490](https://www.frontendmentor.io/profile/SLuo490)
+- LinkedIn - [@SLuo490](https://www.linkedin.com/in/sluo490/)
+
